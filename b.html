@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>अंतर्राष्ट्रीय न्यायिक संघर्षवादी संगठन</title>
+<meta name="description" content="न्याय के लिए संघर्ष, समाज के लिए समर्पण">
+<meta name="keywords" content="NGO, न्याय, संगठन, मानवाधिकार">
+<meta name="author" content="आपका संगठन">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Lightbox -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<style>
+body { font-family: 'Poppins', sans-serif; margin:0; scroll-behavior:smooth; background:#fff; color:#000; }
+
+/* Navbar */
+.navbar { background:#212529; }
+.navbar-brand img { width:50px; margin-right:10px; }
+.navbar-nav .nav-link {
+    color:#fff;
+    font-weight:500;
+    position:relative;
+    transition:color 0.3s;
+}
+.navbar-nav .nav-link:hover {
+    color:#ffcc00;
+}
+.navbar-nav .nav-link::after {
+    content:"";
+    display:block;
+    width:0;
+    height:2px;
+    background:#ffcc00;
+    transition:width 0.3s;
+    position:absolute;
+    bottom:-5px;
+    left:0;
+}
+.navbar-nav .nav-link:hover::after {
+    width:100%;
+}
+
+/* Dark Mode Toggle + Social Icons */
+.header-right {
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.header-right .social-icons a {
+    color:#fff;
+    font-size:18px;
+    margin:0 5px;
+    transition:0.3s;
+}
+.header-right .social-icons a:hover {
+    color:#ffcc00;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+.switch input { display: none; }
+
+.slider {
+    background-color: #ccc;
+    border-radius: 34px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: background-color 0.4s;
+}
+
+/* Circle with icons */
+.toggle-circle {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.4s;
+}
+
+.toggle-circle i {
+    position: absolute;
+    font-size: 12px;
+    transition: opacity 0.3s ease;
+}
+
+.toggle-circle .fa-sun { color: #ffcc00; opacity: 1; }
+.toggle-circle .fa-moon { color: #2196F3; opacity: 0; }
+
+/* When Checked */
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider .toggle-circle {
+    transform: translateX(24px);
+}
+
+input:checked + .slider .toggle-circle .fa-sun { opacity: 0; }
+input:checked + .slider .toggle-circle .fa-moon { opacity: 1; }
+
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #004080, #003366);
+    color:#fff; text-align:center; padding:120px 20px; position:relative;
+}
+.hero h1 { font-size:3rem; font-weight:700; }
+.hero p { font-size:1.2rem; margin-top:15px; }
+.btn-join { background:#ffcc00; color:#000; font-weight:bold; border-radius:30px; padding:12px 30px; }
+
+/* Sections */
+.section-title { font-size:2rem; font-weight:700; margin-bottom:20px; }
+
+/* उद्देश्य */
+.objective-card { padding:20px; border-radius:10px; background:#f8f9fa; transition:0.3s; }
+.objective-card:hover { background:#ffefc2; transform:scale(1.05); }
+
+/* About */
+#about { background:#f8f9fa; padding:50px 20px; }
+#about p { font-size:1.1rem; }
+
+/* Team */
+.team-card { text-align:center; padding:20px; background:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:0.3s; }
+.team-card img { width:100px; border-radius:50%; margin-bottom:15px; }
+.team-card:hover { transform:scale(1.05); }
+.team-card .social a { color:#003366; margin:0 5px; font-size:18px; }
+
+/* Gallery */
+.gallery img { width:100%; height:200px; object-fit:cover; border-radius:10px; transition:0.3s; }
+.gallery img:hover { transform:scale(1.05); }
+
+/* Stats */
+.stats { background:#f8f9fa; padding:40px 0; }
+.stat-box { text-align:center; padding:20px; }
+.stat-box h3 { font-size:2rem; font-weight:bold; }
+
+/* Join Form */
+#join { background:#003366; color:#fff; padding:50px 20px; }
+#join input, #join textarea { margin-bottom:15px; }
+
+/* Contact */
+#contact { padding:50px 20px; }
+
+/* Footer */
+footer { background:#003366; color:white; text-align:center; padding:20px; }
+footer .social-icons a { color:#fff; font-size:24px; margin:0 8px; transition:0.3s; }
+footer .social-icons a:hover { color:#ffcc00; }
+
+/* Scroll-to-Top */
+#scrollTop { position:fixed; bottom:90px; right:20px; background:#ffcc00; border:none; width:50px; height:50px; border-radius:50%; display:none; justify-content:center; align-items:center; font-size:24px; cursor:pointer; }
+#scrollTop:hover { background:#ffaa00; }
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+.whatsapp-float:hover { background-color: #20b957; color: #fff; }
+/* Sun & Moon Icons */
+ 
+
+.icon-sun {
+    right: 70px; /* Switch के Left में Space */
+    color: #ffcc00; /* Yellow for Sun */
+}
+
+.icon-moon {
+    right: 70px; /* Same Position as Sun */
+    color: #fff; /* White for Moon */
+    opacity: 0; /* Default Hidden */
+}
+
+
+/* Dark Mode */
+.dark-mode { background:#121212; color:#fff; }
+.dark-mode .navbar {background:#000;}
+.dark-mode footer {background:#000;}
+.dark-mode .objective-card { background:#1e1e1e; color:#fff; }
+.dark-mode #about { background:#1a1a1a; }
+.dark-mode #join { background:#222; }
+.dark-mode .team-card { background:#1e1e1e; color:#fff; }
+.dark-mode .gallery img { filter:brightness(0.8); }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#"><img src="images/logo.png" alt="Logo"> अंतर्राष्ट्रीय न्यायिक संघर्षवादी संगठन</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">होम</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">हमारे बारे में</a></li>
+                <li class="nav-item"><a class="nav-link" href="#team">हमारी टीम</a></li>
+                <li class="nav-item"><a class="nav-link" href="#objective">हमारा उद्देश्य</a></li>
+                <li class="nav-item"><a class="nav-link" href="#join">सदस्य बनें</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">संपर्क करें</a></li>
+            </ul>
+           <div class="header-right ms-3">
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+    </div>
+    
+     <div class="theme-switch">
+    <label class="switch">
+        <input type="checkbox" id="toggleDark">
+        <div class="slider">
+            <span class="toggle-circle">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </span>
+        </div>
+    </label>
+</div>
+
+
+
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero animate__animated animate__zoomIn">
+    <h1>न्याय के लिए संघर्ष, समाज के लिए समर्पण</h1>
+    <p>हम न्याय और समानता के लिए लड़ते हैं।</p>
+    <a href="#join" class="btn btn-join btn-lg mt-3">संगठन से जुड़ें</a>
+</section>
+
+<!-- हमारा उद्देश्य -->
+<section id="objective" class="container py-5 text-center animate__animated animate__zoomIn">
+    <h2 class="section-title">हमारा उद्देश्य</h2>
+    <div class="row">
+        <div class="col-md-3 mb-3"><div class="objective-card"><i class="fas fa-balance-scale fa-2x mb-2"></i><h5>न्याय</h5><p>सभी को न्याय दिलाना हमारा मिशन है।</p></div></div>
+        <div class="col-md-3 mb-3"><div class="objective-card"><i class="fas fa-users fa-2x mb-2"></i><h5>समानता</h5><p>हर वर्ग के लिए समान अधिकार।</p></div></div>
+        <div class="col-md-3 mb-3"><div class="objective-card"><i class="fas fa-handshake fa-2x mb-2"></i><h5>सहयोग</h5><p>समाज के लिए मिलकर काम करना।</p></div></div>
+        <div class="col-md-3 mb-3"><div class="objective-card"><i class="fas fa-globe fa-2x mb-2"></i><h5>वैश्विक दृष्टिकोण</h5><p>दुनिया में न्याय का संदेश फैलाना।</p></div></div>
+    </div>
+</section>
+
+<!-- हमारे बारे में -->
+<section id="about" class="animate__animated animate__zoomIn">
+    <div class="container text-center">
+        <h2 class="section-title">हमारे बारे में</h2>
+        <p>अंतर्राष्ट्रीय न्यायिक संघर्षवादी संगठन एक सामाजिक संगठन है जो न्याय, समानता और मानवाधिकारों की रक्षा के लिए कार्य करता है। हमारा उद्देश्य समाज में न्याय और पारदर्शिता लाना है।</p>
+    </div>
+</section>
+
+<!-- हमारी टीम -->
+<section id="team" class="container py-5 text-center animate__animated animate__zoomIn">
+    <h2 class="section-title">हमारी टीम</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-3 mb-4">
+            <div class="team-card">
+                <img src="images/shyam.jpg" alt="श्याम मोहन यादव">
+                <h5>श्याम मोहन यादव</h5>
+                <p>राष्ट्रीय अध्यक्ष</p>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="team-card">
+                <img src="images/suresh.jpg" alt="सुरेश यादव">
+                <h5>एडवोकेट सुरेश यादव</h5>
+                <p>राष्ट्रीय उपाध्यक्ष</p>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="team-card">
+                <img src="images/sonkar.jpg" alt="सुरेश सोनकर ">
+                <h5>सुरेश सोनकर </h5>
+                <p>राष्ट्रीय सचिव </p>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- गैलरी -->
+<section id="gallery" class="container py-5 animate__animated animate__zoomIn">
+    <h2 class="section-title text-center">गैलरी</h2>
+    <div class="row gallery">
+        <div class="col-md-4 mb-3"><a href="images/gallery1.jpg" data-lightbox="gallery"><img src="images/gallery1.jpg" alt=""></a></div>
+        <div class="col-md-4 mb-3"><a href="images/gallery2.jpg" data-lightbox="gallery"><img src="images/gallery2.jpg" alt=""></a></div>
+        <div class="col-md-4 mb-3"><a href="images/gallery3.jpg" data-lightbox="gallery"><img src="images/gallery3.jpg" alt=""></a></div>
+        <div class="col-md-4 mb-3"><a href="images/gallery4.jpg" data-lightbox="gallery"><img src="images/gallery4.jpg" alt=""></a></div>
+        <div class="col-md-4 mb-3"><a href="images/gallery5.jpg" data-lightbox="gallery"><img src="images/gallery5.jpg" alt=""></a></div>
+        <div class="col-md-4 mb-3"><a href="images/gallery6.jpg" data-lightbox="gallery"><img src="images/gallery6.jpg" alt=""></a></div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="stats animate__animated animate__zoomIn">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4 stat-box"><h3 id="members">0</h3><p>सदस्य</p></div>
+            <div class="col-md-4 stat-box"><h3 id="cases">0</h3><p>मामले सुलझाए</p></div>
+            <div class="col-md-4 stat-box"><h3 id="volunteers">0</h3><p>स्वयंसेवक</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- सदस्य बनें -->
+<section id="join" class="animate__animated animate__zoomIn">
+    <div class="container text-center">
+        <h2 class="section-title text-white">सदस्य बनें</h2>
+        <form class="row g-3">
+            <div class="col-md-6"><input type="text" class="form-control" placeholder="पूरा नाम" required></div>
+            <div class="col-md-6"><input type="tel" class="form-control" placeholder="मोबाइल नंबर" required></div>
+            <div class="col-md-6"><input type="email" class="form-control" placeholder="ईमेल" required></div>
+            <div class="col-md-6"><input type="text" class="form-control" placeholder="पता" required></div>
+            <div class="col-12"><textarea class="form-control" placeholder="संदेश" rows="3"></textarea></div>
+            <div class="col-12"><button class="btn btn-warning btn-lg">जुड़ें</button></div>
+        </form>
+    </div>
+</section>
+
+<!-- संपर्क करें -->
+<section id="contact" class="animate__animated animate__zoomIn">
+    <div class="container text-center">
+        <h2 class="section-title">संपर्क करें</h2>
+        <p>📞 मोबाइल: +91-8317040312</p>
+        <p>📧 ईमेल: sureshyadav17324@gmail.com</p>
+        <p>🏢 पता: नई बस्ती, नकहरा रोड, मिर्जापुर</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d351.385485876993!2d82.56284289189621!3d25.124479997953497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1753240828494!5m2!1sen!2sin" 
+        width="100%" height="250" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 अंतर्राष्ट्रीय न्यायिक संघर्षवादी संगठन | सभी अधिकार सुरक्षित</p>
+    <div class="social-icons mt-2">
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+<script>
+// Dark Mode Toggle with Sun/Moon + Animation
+const toggleDark = document.getElementById('toggleDark');
+const sunIcon = document.querySelector('.fa-sun');
+const moonIcon = document.querySelector('.fa-moon');
+
+toggleDark.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode', toggleDark.checked);
+
+    // Icon switch with smooth effect
+    if (toggleDark.checked) {
+        sunIcon.style.opacity = '0';
+        moonIcon.style.opacity = '1';
+    } else {
+        sunIcon.style.opacity = '1';
+        moonIcon.style.opacity = '0';
+    }
+});
+
+
+
+// Scroll to Top
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+    scrollTopBtn.style.display = window.scrollY > 200 ? 'flex' : 'none';
+});
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Stats Counter
+const counters = [{id:"members", end:2500}, {id:"cases", end:250}, {id:"volunteers", end:500}];
+counters.forEach(counter => {
+    let count = 0;
+    const interval = setInterval(() => {
+        if (count < counter.end) {
+            count++;
+            document.getElementById(counter.id).innerText = count;
+        } else clearInterval(interval);
+    }, 10);
+});
+</script>
+</body>
+</html>
